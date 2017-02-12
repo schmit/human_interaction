@@ -5,8 +5,8 @@
 
 - Python3
     - numpy
-    - toyplot
-    - mcsim
+    - [toyplot](https://github.com/sandialabs/toyplot)
+    - [mcsim](https://github.com/schmit/mcsim)
 
 ## Use
 
