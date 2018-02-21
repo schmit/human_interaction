@@ -1,14 +1,21 @@
 # Makefile Human Interaction with Recommendation Systems:
 # On Bias and Exploration
 
-all: plot_bias_regret.pdf plot_gap_evolution.pdf
+all: plots/bias_regret.pdf plots/lr_mf.pdf
 
 clean:
-	rm plot_gap_evolution.pdf
-	rm plot_bias_regret.pdf
+	rm -rf data/
+	rm -rf plots/
 
-plot_bias_regret.pdf: plot_bias_regret.py
-	python3 plot_bias_regret.py
+plots/bias_regret.pdf: src/plot_bias_regret.py
+	mkdir plots
+	python3 src/plot_bias_regret.py
 
-plot_gap_evolution.pdf: plot_gap_evolution.py
-	python3 plot_gap_evolution.py
+plots/lr_mf.pdf: src/gen_lr_data.py\
+		src/gen_mf_data.py\
+		src/plot_lr_mf.py
+	mkdir data
+	python3 src/gen_lr_data.py
+	python3 src/gen_mf_data.py
+	python3 src/plot_lr_mf.py
+

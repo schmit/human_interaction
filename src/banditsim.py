@@ -38,6 +38,23 @@ def normals(sigmas=[1, 1], mus=0):
 
     return _normals
 
+def scale_rvs(rv, scales=[1, 1]):
+    """
+    Returns function that returns random variables drawn from <rv>
+
+    where <rv> is some distribution that only depends on a scale parameter
+    """
+    n = len(scales)
+
+    def _rvs():
+        return rv(scales)
+
+    return _rvs
+
+exponentials = lambda scales: scale_rvs(np.random.exponential, scales)
+paretos = lambda scales: scale_rvs(np.random.pareto, scales)
+
+
 @withStateAndLogging("score")
 def average_score(state, config, log):
     """
