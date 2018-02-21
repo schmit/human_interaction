@@ -5,7 +5,7 @@
 
 - Python3
     - numpy
-    - [toyplot](https://github.com/sandialabs/toyplot)
+    - matplotlib
     - [mcsim](https://github.com/schmit/mcsim)
 
 ## Use
@@ -15,3 +15,6 @@ Run
 ```
 make
 ```
+
+Note, generating the data for the Matrix Factorization model
+can take a few hours.
